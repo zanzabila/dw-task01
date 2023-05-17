@@ -54,3 +54,79 @@ nav ul li .active {
     border-radius: 5px;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    /* height: 90vh; */
+    align-items: center;
+}
+
+section {
+    display: flex;
+    width: 80%;
+}
+
+.left {
+    flex: 3;
+    margin: 50px;
+}
+
+.right {
+    flex: 2;
+    margin: 50px;
+    width: 300px;
+    height: fit-content;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 15px grey;
+    background-color: white;
+    overflow: hidden;
+}
+
+.right img {
+    width: 100%;
+}
+
+#main-card {
+    display: flex;
+    width: 80%;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px grey;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+#contact-cv {
+    align-items: center;
+    height: 50px;
+    margin: 10px;
+}
+
+#contact-cv * {
+    margin: 5px;
+    height: 100%;
+}
+
+#contact-cv button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+#social-media {
+    display: flex;
+    height: 40px;
+    margin: 10px;
+}
+
+#social-media img {
+    margin-left: 10px;
+    height: 100%;
+}
+
+button {
+    cursor: pointer;
+}
