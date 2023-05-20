@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+
+body {
+    background-color: #dce0e4;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #f8f4f4;
+    display: flex;
+    align-items: center;
+    height: 10vh;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 25px;
+}
+
+nav ul li a {
+    color: black;
+}
+
+nav ul li .active {
+    font-weight: bold;
+}
+
+.nav_left {
+    flex: 50%;
+}
+
+.nav-right {
+    flex: 50%;
+    text-align: end;
+    margin-right: 25px;
+}
+
+.nav-right a {
+    background-color: black;
+    padding: 8px 20px;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Add project form */
+
+.project-form {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.project-form .form-container {
+    width: 500px;
+}
+
+.project-form .form-container h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.project-form form label {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.project-form form input, textarea {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #b8b4b4;
+    resize: none;
+    box-shadow: 0 2px 5px #b8b4b4;
+    white-space: pre;
+}
+
+.project-form .form-container .start-end {
+    display: flex;
+    gap: 8px;
+}
+
+.project-form .form-container .start-end #start {
+    flex: 1;
+}
+
+.project-form .form-container .start-end #end {
+    flex: 1;
+}
+
+.project-form .form-container .checkbox-group {
+    display: flex;
+    width: 100%;
+}
+
+.project-form .form-container .checkbox-group .cb {
+    flex: 1;
+    display: flexbox;
+}
+
+.project-form .form-container .checkbox-group .cb div input {
+    width: fit-content;
+}
+
+.project-form .form-container .checkbox-group .cb div label {
+    color: #514a4a;
+    margin-left: 5px;
+}
+
+.project-form form .input-image-group {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background: white;
+    border: 1px solid #c4c4c4;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px #b8b4b4;
+}
+
+.project-form form .input-image-group label p {
+    font-size: 20px;
+    margin: 0 0;
+    background-color: #e4e4e4;
+    color: #b2abab;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #b8b4b4;
+}
+
+.project-form form .input-image-group label img {
+    margin-right: 8px;
+}
+
+.project-form .input-image-group label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.project-form .button-group {
+    text-align: right;
+}
+
+.project-form form button {
+    margin-top: 50px;
+    padding: 8px 40px;
+    font-size: 17px;
+    font-weight: 800;
+    background: black;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.project-form form button:hover {
+    background-color: orangered;
+}
+
+/* Project List */
+
+.project-list {
+    background-color: #f8f8f8;
+    padding-top: 50px;
+    padding-bottom: 32px;
+}
+
+.project-list h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.project-list .project-row {
+    display: flex;
+    margin: 50px;
+    gap: 20px;
+}
+
+.project-list .project-row .project-item-empty {
+    flex: 1;
+    padding: 16px;
+}
+
+.project-list .project-row .project-item {
+    flex: 1;
+    padding: 16px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px #b8b4b4;
+}
+
+.project-list .project-row .project-item .item-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.project-list .project-row .project-item .project-item-title {
+    margin-top: 8px;
+}
+
+.project-list .project-row .project-item .project-item-title a {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.project-list .project-row .project-item .project-item-duration {
+    font-size: 14px;
+    color: #524b4b;
+}
+
+.project-list .project-row .project-item .tech-list {
+    margin-bottom: 8px;
+}
+
+.project-list .project-row .project-item .tech-list img {
+    width: 40px;
+}
+
+
+.project-list .project-row .project-item .edit-delete-button {
+    display: flex;
+    gap: 4px;
+}
+
+.project-list .project-row .project-item .edit-delete-button button {
+    flex: 1;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    background-color: black;
+    color: white;
+}
+
+.project-list .project-row .project-item .edit-delete-button button:hover {
+    background-color: orangered;
+    cursor: pointer;
+}

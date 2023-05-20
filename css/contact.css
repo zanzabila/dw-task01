@@ -33,7 +33,7 @@ input, select, textarea {
     border-radius: 5px;
     border: 1px solid #b8b4b4;
     resize: none;
-    box-shadow: 0 5 15px rgb(0, 0, 0);
+    box-shadow: 0 2px 5px #b8b4b4;
 }
 
 button {

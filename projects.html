@@ -1,0 +1,184 @@
+<html>
+    <head>
+        <title>My Projects</title>
+        <link rel="stylesheet" href="css/projects.css"/>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-left">
+                <ul>
+                    <li>
+                        <img src="assets/images/logo.png" alt="logo" />
+                    </li>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a class="active" href="projects.html">My Project</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-right">
+                <a href="contact.html">Contact Me</a>
+            </div>
+        </nav>
+
+        <div class="project">
+            <div class="project-form">
+                <div class="form-container">
+                    <form onsubmit="addProject(event)">
+                        <h1>ADD MY PROJECT</h1>
+                        <div>
+                            <label for="project-name">Project Name</label>
+                            <input id="project-name" type="text"/>
+                        </div>
+                        <div class="start-end">
+                            <div id="start">
+                                <label for="start-date">Start Date</label>
+                                <input id="start-date" type="date"/>
+                            </div>
+                            <div id="end">
+                                <label for="end-date">End Date</label>
+                                <input id="end-date" type="date"/>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="desc">Description</label>
+                            <textarea id="desc" rows="4"></textarea>
+                        </div>
+                        <div>
+                            <label>Technologies</label>
+                            <div class="checkbox-group">
+                                <div class="cb">
+                                    <div>
+                                        <input type="checkbox" id="node-js"/>
+                                        <label for="node-js">Node Js</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="react-js"/>
+                                        <label for="react-js">React Js</label>
+                                    </div>
+                                </div>
+                                <div class="cb">
+                                    <div>
+                                        <input type="checkbox" id="next-js"/>
+                                        <label for="next-js">Next Js</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="typescript"/>
+                                        <label for="typescript">TypeScript</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label>Upload Image</label>
+                            <div class="input-image-group">
+                                <label for="upload-image">
+                                    <p>choose</p>
+                                    <img src="assets/images/file.png" alt="file"/>
+                                </label>
+                                <input type="file" id="upload-image" hidden/>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button>Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="contents" class="project-list">
+                <h1>MY PROJECT</h1>
+
+                <div class="project-row">
+                    <div class="project-item">
+                        <img class="item-img" src="assets/images/img2.png"/>
+                        <div class="project-item-title"><a href="project-detail.html" target="_blank">Dumbways Mobile App - 2021</a></div>
+                        <div class="project-item-duration">durasi: 3 bulan</div>
+                        <p>App that is used by dumbways student, it was deployed and can be downloaded on playstore. Happy download</p>
+                        <div class="tech-list">
+                            <img src="assets/images/playstoreLogo.png" alt="playstore-logo"/>
+                            <img src="assets/images/androidLogo.png" alt="android-logo"/>
+                            <img src="assets/images/javaLogo.png" alt="java-logo"/>
+                        </div>
+                        <div class="edit-delete-button">
+                            <button>edit</button>
+                            <button>delete</button>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <img class="item-img" src="assets/images/img3.png"/>
+                        <div class="project-item-title"><a href="project-detail.html" target="_blank">Dumbways Mobile App - 2021</a></div>
+                        <div class="project-item-duration">durasi: 3 bulan</div>
+                        <p>App that is used by dumbways student, it was deployed and can be downloaded on playstore. Happy download</p>
+                        <div class="tech-list">
+                            <img src="assets/images/playstoreLogo.png" alt="playstore-logo"/>
+                            <img src="assets/images/androidLogo.png" alt="android-logo"/>
+                            <img src="assets/images/javaLogo.png" alt="java-logo"/>
+                        </div>
+                        <div class="edit-delete-button">
+                            <button>edit</button>
+                            <button>delete</button>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <img class="item-img" src="assets/images/img4.png"/><div class="project-item-title"><a href="project-detail.html" target="_blank">Dumbways Mobile App - 2021</a></div>
+                        <div class="project-item-duration">durasi: 3 bulan</div>
+                        <p>App that is used by dumbways student, it was deployed and can be downloaded on playstore. Happy download</p>
+                        <div class="tech-list">
+                            <img src="assets/images/playstoreLogo.png" alt="playstore-logo"/>
+                            <img src="assets/images/androidLogo.png" alt="android-logo"/>
+                            <img src="assets/images/javaLogo.png" alt="java-logo"/>
+                        </div>
+                        <div class="edit-delete-button">
+                            <button>edit</button>
+                            <button>delete</button>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="project-row">
+                    <div class="project-item">
+                        <img class="item-img" src="assets/images/img5.png"/><div class="project-item-title"><a href="project-detail.html" target="_blank">Dumbways Mobile App - 2021</a></div>
+                        <div class="project-item-duration">durasi: 3 bulan</div>
+                        <p>App that is used by dumbways student, it was deployed and can be downloaded on playstore. Happy download</p>
+                        <div class="tech-list">
+                            <img src="assets/images/playstoreLogo.png" alt="playstore-logo"/>
+                            <img src="assets/images/androidLogo.png" alt="android-logo"/>
+                            <img src="assets/images/javaLogo.png" alt="java-logo"/>
+                        </div>
+                        <div class="edit-delete-button">
+                            <button>edit</button>
+                            <button>delete</button>
+                        </div>
+                    </div>
+                
+                    <div class="project-item">
+                        <img class="item-img" src="assets/images/img6.png"/><div class="project-item-title"><a href="project-detail.html" target="_blank">Dumbways Mobile App - 2021</a></div>
+                        <div class="project-item-duration">durasi: 1 bulan</div>
+                        <p>App that is used by dumbways student, it was deployed and can be downloaded on playstore. Happy download</p>
+                        <div class="tech-list">
+                            <img src="assets/images/playstoreLogo.png" alt="playstore-logo"/>
+                            <img src="assets/images/androidLogo.png" alt="android-logo"/>
+                            <img src="assets/images/javaLogo.png" alt="java-logo"/>
+                        </div>
+                        <div class="edit-delete-button">
+                            <button>edit</button>
+                            <button>delete</button>
+                        </div>
+                    </div>
+
+                    <div class="project-item-empty"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/projects.js"></script>
+    </body>
+</html>
