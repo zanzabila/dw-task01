@@ -1,3 +1,4 @@
+<!-- <!DOCTYPE html> -->
 <html>
     <head>
         <title>My Projects</title>
@@ -52,22 +53,34 @@
                             <div class="checkbox-group">
                                 <div class="cb">
                                     <div>
-                                        <input type="checkbox" id="node-js"/>
-                                        <label for="node-js">Node Js</label>
+                                        <label class="cb-container cb-container-top" for="node-js">
+                                            <input type="checkbox" id="node-js"/>
+                                            <span class="checkmark"></span>
+                                            Node Js
+                                        </label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" id="react-js"/>
-                                        <label for="react-js">React Js</label>
+                                        <label class="cb-container cb-container-bottom" for="react-js">
+                                            <input type="checkbox" id="react-js"/>
+                                            <span class="checkmark"></span>
+                                            React Js
+                                        </label>
                                     </div>
                                 </div>
                                 <div class="cb">
                                     <div>
-                                        <input type="checkbox" id="next-js"/>
-                                        <label for="next-js">Next Js</label>
+                                        <label class="cb-container cb-container-top" for="next-js">
+                                            <input type="checkbox" id="next-js"/>
+                                            <span class="checkmark"></span>
+                                            Next Js
+                                        </label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" id="typescript"/>
-                                        <label for="typescript">TypeScript</label>
+                                        <label class="cb-container cb-container-bottom" for="typescript">
+                                            <input type="checkbox" id="typescript"/>
+                                            <span class="checkmark"></span>
+                                            TypeScript
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -77,9 +90,10 @@
                             <div class="input-image-group">
                                 <label for="upload-image">
                                     <p>choose</p>
+                                    <div id="filename"></div>
                                     <img src="assets/images/file.png" alt="file"/>
                                 </label>
-                                <input type="file" id="upload-image" hidden/>
+                                <input type="file" id="upload-image" onchange="getFileName()" hidden/>
                             </div>
                         </div>
 

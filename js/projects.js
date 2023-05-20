@@ -119,6 +119,10 @@ function renderProjects() {
     document.getElementById("contents").innerHTML = s;
 }
 
+function getFileName() {
+    document.getElementById("filename").innerHTML = document.getElementById("upload-image").value;
+}
+
 function calculateDuration(date1, date2) {
     let d1 = new Date(
         date1.substring(0, 4),

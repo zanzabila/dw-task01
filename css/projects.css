@@ -106,6 +106,7 @@ nav ul li .active {
 .project-form .form-container .checkbox-group {
     display: flex;
     width: 100%;
+    margin: 5px 0 20px;
 }
 
 .project-form .form-container .checkbox-group .cb {
@@ -142,6 +143,15 @@ nav ul li .active {
     padding: 8px;
     border-radius: 8px;
     border: 1px solid #b8b4b4;
+}
+
+.project-form form .input-image-group label div {
+    flex-grow: 1;
+    height: auto;
+    object-fit: cover;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 8px;
 }
 
 .project-form form .input-image-group label img {
@@ -236,7 +246,6 @@ nav ul li .active {
     width: 40px;
 }
 
-
 .project-list .project-row .project-item .edit-delete-button {
     display: flex;
     gap: 4px;
@@ -254,4 +263,81 @@ nav ul li .active {
 .project-list .project-row .project-item .edit-delete-button button:hover {
     background-color: orangered;
     cursor: pointer;
+}
+
+/* Custom checkbox */
+
+.cb-container-top {
+    display: flex;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cb-container-bottom {
+    display: flex;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cb-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #b8b4b4;
+    box-shadow: 0 2px 5px #b8b4b4;
+}
+
+.cb-container:hover input ~ .checkmark {
+    background-color: #b8b4b4;
+}
+
+.cb-container input:checked ~ .checkmark {
+    background-color: orangered;
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.cb-container input:checked ~ .checkmark::after {
+    display: flex;
+}
+
+.cb-container .checkmark::after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
