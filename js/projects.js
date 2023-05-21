@@ -34,7 +34,7 @@ function getProjectData() {
     let endDate = document.getElementById("end-date").value;
     let desc = document.getElementById("desc").value;
     let nodeJs = document.getElementById("node-js").checked;
-    let reactjs = document.getElementById("react-js").checked;
+    let reactJs = document.getElementById("react-js").checked;
     let nextJs = document.getElementById("next-js").checked;
     let typescript = document.getElementById("typescript").checked;
     let image = document.getElementById("upload-image").files;
@@ -63,7 +63,7 @@ function getProjectData() {
         endDate,
         desc,
         nodeJs,
-        reactjs,
+        reactJs,
         nextJs,
         typescript,
         img,
@@ -101,9 +101,14 @@ function renderProjects() {
                     <div class="project-item-duration">durasi: ${projectData[i+j].duration} bulan</div>
                     <p>${projectData[i+j].desc}</p>
                     <div class="tech-list">
-                        <img src="assets/images/playstoreLogo.png" alt="playstore-logo"/>
-                        <img src="assets/images/androidLogo.png" alt="android-logo"/>
-                        <img src="assets/images/javaLogo.png" alt="java-logo"/>
+            `;
+
+            if (projectData[i+j].nodeJs) s+= `<img src="assets/images/node-js.svg" alt="nodejs-logo"/>`;
+            if (projectData[i+j].reactJs) s+= `<img src="assets/images/react.svg" alt="reactjs-logo"/>`;
+            if (projectData[i+j].nextJs) s+= `<img src="assets/images/nextjs.svg" alt="nextjs-logo"/>`;
+            if (projectData[i+j].typescript) s+= `<img src="assets/images/typescript.svg" alt="typescript-logo"/>`;
+
+            s += `
                     </div>
                     <div class="edit-delete-button">
                         <button>edit</button>
