@@ -53,9 +53,9 @@ function getProjectData() {
 
     let img = URL.createObjectURL(image[0]);
 
+    startDate = new Date(startDate);
+    endDate = new Date(endDate);
     let duration = calculateDuration(startDate, endDate);
-    startDate = convertDate(startDate);
-    endDate = convertDate(endDate);
     
     let project = {
         name,
@@ -73,13 +73,14 @@ function getProjectData() {
     return project;
 }
 
-function convertDate(date) {
-    // Format awal yyyy-mm-dd
-    let d = parseInt(date.substring(8, 10));
-    let m = parseInt(date.substring(5, 7));
-    let y = parseInt(date.substring(0, 4));
-    // Format akhir d mon yyyy
-    return d + " " + months[m-1] + " " + y;
+function convertDate(date) { // untuk detailproject.html
+    // Format awal tipe date
+    let d = date.getDate();
+    let m = date.getMonth();
+    let y = date.getFullYear();
+
+    // Format akhir string "d mon yyyy"
+    return d + " " + months[m] + " " + y;
 }
 
 function renderProjects() {
@@ -98,7 +99,7 @@ function renderProjects() {
                 <div class="project-item">
                     <img class="item-img" src="${projectData[i+j].img}"/>
                     <div class="project-item-title"><a href="project-detail.html" target="_blank">${projectData[i+j].name}</a></div>
-                    <div class="project-item-duration">durasi: ${projectData[i+j].duration} bulan</div>
+                    <div class="project-item-duration">durasi: ${projectData[i+j].duration}</div>
                     <p>${projectData[i+j].desc}</p>
                     <div class="tech-list">
             `;
@@ -129,33 +130,19 @@ function getFileName() {
 }
 
 function calculateDuration(date1, date2) {
-    let d1 = new Date(
-        date1.substring(0, 4),
-        date1.substring(5, 7)-1,
-        date1.substring(8, 10)
-    );
-    let d2 = new Date(
-        date2.substring(0, 4),
-        date2.substring(5, 7)-1,
-        date2.substring(8, 10)
-    );
-
-    let diff = (d2.getTime() - d1.getTime()) / 1000;
-    diff /= (60*60*24*7*4);
-    return Math.round(diff);
+    let days = (date2.getTime() - date1.getTime()) / 1000 / 60 / 60 / 24;
+    let months = Math.floor(days/30);
+    let weeks = Math.floor(days/7);
+    
+    if (months>11) return Math.floor(months/12) + " tahun";
+    if (months>0) return months + " bulan";
+    if (weeks>0) return weeks + " minggu";
+    return days + " hari";
 }
 
 function invalidDate(date1, date2) {
-    let d1 = new Date(
-        date1.substring(0, 4),
-        date1.substring(5, 7)-1,
-        date1.substring(8, 10)
-    );
-    let d2 = new Date(
-        date2.substring(0, 4),
-        date2.substring(5, 7)-1,
-        date2.substring(8, 10)
-    );
+    let d1 = new Date(date1);
+    let d2 = new Date(date2);
 
     return d1 > d2;
 }
