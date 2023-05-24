@@ -99,14 +99,15 @@ section {
 }
 
 #contact-cv {
+    display: flex;
     align-items: center;
     height: 50px;
-    margin: 10px;
+    margin: 10px 0;
+    gap: 10px;
 }
 
 #contact-cv * {
-    margin: 5px;
-    height: 100%;
+    cursor: pointer;
 }
 
 #contact-cv button {
@@ -114,19 +115,98 @@ section {
     color: white;
     padding: 10px 20px;
     border-radius: 50px;
+    border: none;
+}
+
+#contact-cv button:hover {
+    background-color: orangered;
 }
 
 #social-media {
     display: flex;
     height: 40px;
-    margin: 10px;
+    margin: 10px 0;
+    gap: 10px;
 }
 
 #social-media img {
-    margin-left: 10px;
     height: 100%;
 }
 
 button {
     cursor: pointer;
+}
+
+/* Responsive Layout */
+
+#bars-menu {
+    display: none;
+}
+
+#bars-menu button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger-nav-container {
+    font-size: 23px;
+    list-style-type: none;
+    display: none;
+}
+
+.hamburger-nav-container * {
+    background-color: #d3d3d3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.hamburger-nav-container .hamburger-active {
+    font-weight: bold;
+}
+
+.hamburger-nav-container #contact-button {
+    background-color: black;
+    padding: 8px 20px;
+    color: white;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 900px) {
+    .item-collapse {
+        display: none;
+    }
+    
+    #bars-menu {
+        display: block;
+    }
+    
+    .container {
+        display: block;
+    }
+
+    section {
+        display: block;
+        width: 100%;
+    }
+    
+    .left {
+        margin: 0;
+    }
+
+    .right {
+        margin: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    #social-media {
+        justify-content: center;
+    }
+
+    #social-media img {
+        width: 100%;
+    }
 }

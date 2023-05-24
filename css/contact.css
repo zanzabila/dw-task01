@@ -18,6 +18,8 @@ form {
 }
 
 form div {
+    display: flex;
+    flex-direction: column;
     margin-top: 15px;
 }
 
@@ -27,7 +29,6 @@ label {
 
 input, select, textarea {
     background-color: white;
-    width: 100%;
     padding: 10px;
     margin-top: 5px;
     border-radius: 5px;
@@ -36,17 +37,23 @@ input, select, textarea {
     box-shadow: 0 2px 5px #b8b4b4;
 }
 
+#submit-button {
+    justify-content: end;
+}
+
 button {
+    width: fit-content;
     background-color: black;
     color: white;
     padding: 6px 25px;
     border: none;
     border-radius: 20px;
     margin-top: 20px;
+    margin-right: 0;
+    margin-left: auto;
     font-size: 15px;
     cursor: pointer;
     font-weight: bold;
-    float: right;
 }
 
 button:hover {
@@ -96,4 +103,70 @@ nav ul li a {
     padding: 8px 20px;
     color: white;
     border-radius: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Responsive Layout */
+
+#bars-menu {
+    display: none;
+}
+
+#bars-menu button {
+    background-color: transparent;
+    color: black;
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+}
+
+.hamburger-nav-container {
+    font-size: 23px;
+    list-style-type: none;
+    display: none;
+}
+
+.hamburger-nav-container * {
+    color: black;
+    background-color: #d3d3d3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.hamburger-nav-container .hamburger-active {
+    font-weight: bold;
+}
+
+.hamburger-nav-container #contact-button {
+    background-color: black;
+    padding: 8px 20px;
+    color: white;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 900px) {
+    .item-collapse {
+        display: none;
+    }
+
+    #bars-menu {
+        display: block;
+    }
+
+    form {
+        margin-left: 20px;
+        margin-right: 20px;
+        width: auto;
+    }
 }

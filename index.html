@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Day 1 Task</title>
+        <title>Task 1</title>
         <link rel="stylesheet" href="css/style.css">
         <link
             rel="stylesheet"
@@ -19,19 +19,33 @@
                     <li>
                         <img src="assets/images/logo.png" alt="logo" />
                     </li>
-                    <li>
+                    <li class="item-collapse">
                         <a class="active" href="index.html">Home</a>
                     </li>
-                    <li>
+                    <li class="item-collapse">
                         <a href="projects.html">My Project</a>
                     </li>
                 </ul>
             </div>
             
-            <div class="nav-right">
+            <div class="nav-right item-collapse">
                 <a href="contact.html">Contact Me</a>
             </div>
+
+            <div class="nav-right" id="bars-menu">
+                <button onclick="openHamburger()">
+                    <i class="fa-2x fa-solid fa-bars"></i>
+                </button>
+            </div>
         </nav>
+
+        <div class="hamburger-nav-container" id="hamburger-nav-container">
+            <a href="index.html" class="hamburger-active">Home</a>
+            <a href="projects.html">My Project</a>
+            <div>
+                <a href="contact.html" id="contact-button">Contact Me</a>
+            </div>
+        </div>
         
         <div id="main-card">
             
@@ -45,7 +59,7 @@
                         </p>
                         
                         <div id="contact-cv">
-                            <button type="button">contact</button>
+                            <button type="button" onclick="location.href='contact.html'">contact</button>
                             <span>download CV</span>
                             <i class="fa-sharp fa-solid fa-download"></i>
                         </div>
@@ -67,5 +81,6 @@
             </div>
 
         </div>
+        <script src="js/index.js"></script>
     </body>
 </html>

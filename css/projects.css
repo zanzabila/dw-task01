@@ -343,3 +343,50 @@ nav ul li .active {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+/* Responsive Layout */
+
+#bars-menu {
+    display: none;
+}
+
+#bars-menu button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger-nav-container {
+    font-size: 23px;
+    list-style-type: none;
+    display: none;
+}
+
+.hamburger-nav-container * {
+    background-color: #d3d3d3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.hamburger-nav-container .hamburger-active {
+    font-weight: bold;
+}
+
+.hamburger-nav-container #contact-button {
+    background-color: black;
+    padding: 8px 20px;
+    color: white;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 900px) {
+    .item-collapse {
+        display: none;
+    }
+
+    #bars-menu {
+        display: block;
+    }
+}
