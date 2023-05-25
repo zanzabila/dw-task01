@@ -437,6 +437,10 @@ nav ul li .active {
     .project-form .form-container .start-end {
         flex-direction: column;
     }
+
+    .project-list .grid-container .project-item .edit-delete-button {
+        flex-direction: column;
+    }
 }
 
 @media only screen and (max-width: 350px) {
