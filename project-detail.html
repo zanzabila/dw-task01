@@ -3,6 +3,13 @@
     <head>
         <title>Project Detail</title>
         <link rel="stylesheet" href="css/project-detail.css"/>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
     </head>
     <body id="nanti-hapus">
         <nav>
@@ -11,19 +18,33 @@
                     <li>
                         <img src="assets/images/logo.png" alt="logo" />
                     </li>
-                    <li>
+                    <li class="item-collapse">
                         <a href="index.html">Home</a>
                     </li>
-                    <li>
+                    <li class="item-collapse">
                         <a class="active" href="projects.html">My Project</a>
                     </li>
                 </ul>
             </div>
             
-            <div class="nav-right">
+            <div class="nav-right item-collapse">
                 <a href="contact.html">Contact Me</a>
             </div>
+
+            <div class="nav-right" id="bars-menu">
+                <button onclick="openHamburger()">
+                    <i class="fa-2x fa-solid fa-bars"></i>
+                </button>
+            </div>
         </nav>
+
+        <div class="hamburger-nav-container" id="hamburger-nav-container">
+            <a href="index.html">Home</a>
+            <a href="projects.html" class="hamburger-active">My Project</a>
+            <div>
+                <a href="contact.html" id="contact-button">Contact Me</a>
+            </div>
+        </div>
 
         <div class="detail">
             <h1>Dumbways Web App</h1>
@@ -93,5 +114,6 @@
             </div>
 
         </div>
+        <script src="js/project-detail.js"></script>
     </body>
 </html>

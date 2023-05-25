@@ -44,7 +44,6 @@ function openHamburger() {
     }
 }
 
-
 function addProject(event) {
     event.preventDefault();
     project = getProjectData();
