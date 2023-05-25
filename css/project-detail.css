@@ -176,6 +176,10 @@ nav ul li .active {
         display: block;
     }
 
+    .detail > * {
+        margin: 30px;
+    }
+
     .detail .info {
         flex-direction: column;
     }
