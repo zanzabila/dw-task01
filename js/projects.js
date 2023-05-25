@@ -1,16 +1,7 @@
+let col = 3;
 let hamburgerIsOpen = false;
-
-function openHamburger() {
-    let hamburgerNavContainer = document.getElementById("hamburger-nav-container");
-    if (!hamburgerIsOpen) {
-        hamburgerNavContainer.style.display = 'block';
-        hamburgerIsOpen = true;
-    } else {
-        hamburgerNavContainer.style.display = 'none';
-        hamburgerIsOpen = false;
-    }
-}
-
+const mediaQuery = window.matchMedia('(max-width: 900px)');
+let dataDummy = true;
 let projectData = [];
 const months = [
     "Jan",
@@ -27,6 +18,33 @@ const months = [
     "Des"
 ];
 
+createDummyData();
+
+function handleScreenChange(e) {
+    if (e.matches) {
+        col = 2;
+        renderProjects();
+    } else {
+        col = 3;
+        renderProjects();
+    }
+}
+
+mediaQuery.addListener(handleScreenChange);
+handleScreenChange(mediaQuery);
+
+function openHamburger() {
+    let hamburgerNavContainer = document.getElementById("hamburger-nav-container");
+    if (!hamburgerIsOpen) {
+        hamburgerNavContainer.style.display = 'block';
+        hamburgerIsOpen = true;
+    } else {
+        hamburgerNavContainer.style.display = 'none';
+        hamburgerIsOpen = false;
+    }
+}
+
+
 function addProject(event) {
     event.preventDefault();
     project = getProjectData();
@@ -36,6 +54,10 @@ function addProject(event) {
     } else if (project == "Invalid dates") {
         alert("Tanggal mulai dan selesai tidak valid");
         return;
+    }
+    if (dataDummy) {
+        projectData = [];
+        dataDummy = false;
     }
     projectData.push(project);
     renderProjects();
@@ -86,7 +108,7 @@ function getProjectData() {
     return project;
 }
 
-function convertDate(date) { // untuk detailproject.html
+function convertDate(date) { // untuk project-detail.html
     // Format awal tipe date
     let d = date.getDate();
     let m = date.getMonth();
@@ -97,45 +119,54 @@ function convertDate(date) { // untuk detailproject.html
 }
 
 function renderProjects() {
-    let s = `<h1>MY PROJECT</h1>`;
+    let s = `<h1>MY PROJECT</h1><div class="grid-container">`;
 
-    for (let i=0; i<projectData.length; i+=3) {
-        s += `<div class="project-row">`;
+    for (let i=0; i<projectData.length; ++i) {
+        s += `
+            <div class="project-item" id="item-${i}">
+                <img class="item-img" src="${projectData[i].img}"/>
+                <div class="project-item-title"><a href="project-detail.html" target="_blank">${projectData[i].name}</a></div>
+                <div class="project-item-duration">durasi: ${projectData[i].duration}</div>
+                <p>${projectData[i].desc}</p>
+                <div class="tech-list">
+        `;
 
-        for (let j=0; j<3; ++j) {
-            if (i+j >= projectData.length) {
-                s += `<div class="project-item-empty"></div>`;
-                continue;
-            }
-            
-            s += `
-                <div class="project-item">
-                    <img class="item-img" src="${projectData[i+j].img}"/>
-                    <div class="project-item-title"><a href="project-detail.html" target="_blank">${projectData[i+j].name}</a></div>
-                    <div class="project-item-duration">durasi: ${projectData[i+j].duration}</div>
-                    <p>${projectData[i+j].desc}</p>
-                    <div class="tech-list">
-            `;
+        if (projectData[i].nodeJs) s+= `<img src="assets/images/node-js.svg" alt="nodejs-logo"/>`;
+        if (projectData[i].reactJs) s+= `<img src="assets/images/react.svg" alt="reactjs-logo"/>`;
+        if (projectData[i].nextJs) s+= `<img src="assets/images/nextjs.svg" alt="nextjs-logo"/>`;
+        if (projectData[i].typescript) s+= `<img src="assets/images/typescript.svg" alt="typescript-logo"/>`;
 
-            if (projectData[i+j].nodeJs) s+= `<img src="assets/images/node-js.svg" alt="nodejs-logo"/>`;
-            if (projectData[i+j].reactJs) s+= `<img src="assets/images/react.svg" alt="reactjs-logo"/>`;
-            if (projectData[i+j].nextJs) s+= `<img src="assets/images/nextjs.svg" alt="nextjs-logo"/>`;
-            if (projectData[i+j].typescript) s+= `<img src="assets/images/typescript.svg" alt="typescript-logo"/>`;
-
-            s += `
-                    </div>
-                    <div class="edit-delete-button">
-                        <button>edit</button>
-                        <button>delete</button>
-                    </div>
+        s += `
                 </div>
-            `;
-        }
-
-        s += `</div>`;
+                <div class="edit-delete-button">
+                    <button>edit</button>
+                    <button>delete</button>
+                </div>
+            </div>
+        `;
     }
 
+    if (col==3){
+        if (projectData.length == 1) {
+            s += `
+                <div class="project-item-empty" style="grid-column: 2/3;"></div>
+                <div class="project-item-empty" style="grid-column: 3/4;"></div>
+            `;
+        } else if (projectData.length == 2) {
+            s += `
+                <div class="project-item-empty" style="grid-column: 3/4;"></div>
+            `;
+        }
+    } else if (col==2 && projectData.length==1) {
+        s += `
+            <div class="project-item-empty" style="grid-column: 2/3;"></div>
+        `;
+    }
+
+    s += `</div>`;
     document.getElementById("contents").innerHTML = s;
+    
+    changeGridCol();
 }
 
 function getFileName() {
@@ -158,4 +189,79 @@ function invalidDate(date1, date2) {
     let d2 = new Date(date2);
 
     return d1 > d2;
+}
+
+function changeGridCol() {
+    for (let i=0; i<projectData.length; ++i) {
+        item = document.getElementById(`item-${i}`);
+        item.style.gridRow = `${Math.floor((i+1)/col)+1} / ${Math.floor((i+1)/col)+2}`;
+        item.style.gridColumn = `${(i%col)+1} / ${(i%col)+2}`;
+        
+        if ((i+1)%col == 0) {
+            item.style.gridRow = `${Math.floor((i+1)/col)} / ${Math.floor((i+1)/col)+1}`;
+        }
+    }
+}
+
+function createDummyData() {
+    const project1 = {
+        name: "Dumbways Mobile App - 2021",
+        desc: "App that is used by dumbways student, it was deployed and can be downloaded on playstore. Happy download",
+        nodeJs: false,
+        reactJs: false,
+        nextJs: false,
+        typescript: false,
+        img: "assets/images/img2.png",
+        duration: "3 bulan"
+    };
+
+    const project2 = {
+        name: "Dumbways Mobile App - 2021",
+        desc: "App that is used by dumbways student, it was deployed and can be downloaded on playstore. Happy download",
+        nodeJs: false,
+        reactJs: false,
+        nextJs: false,
+        typescript: false,
+        img: "assets/images/img3.png",
+        duration: "3 bulan"
+    };
+
+    const project3 = {
+        name: "Dumbways Mobile App - 2021",
+        desc: "App that is used by dumbways student, it was deployed and can be downloaded on playstore. Happy download",
+        nodeJs: false,
+        reactJs: false,
+        nextJs: false,
+        typescript: false,
+        img: "assets/images/img4.png",
+        duration: "3 bulan"
+    };
+
+    const project4 = {
+        name: "Dumbways Mobile App - 2021",
+        desc: "App that is used by dumbways student, it was deployed and can be downloaded on playstore. Happy download",
+        nodeJs: false,
+        reactJs: false,
+        nextJs: false,
+        typescript: false,
+        img: "assets/images/img5.png",
+        duration: "3 bulan"
+    };
+
+    const project5 = {
+        name: "Dumbways Mobile App - 2021",
+        desc: "App that is used by dumbways student, it was deployed and can be downloaded on playstore. Happy download",
+        nodeJs: false,
+        reactJs: false,
+        nextJs: false,
+        typescript: false,
+        img: "assets/images/img6.png",
+        duration: "1 bulan"
+    };
+
+    projectData.push(project1);
+    projectData.push(project2);
+    projectData.push(project3);
+    projectData.push(project4);
+    projectData.push(project5);
 }
