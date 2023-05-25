@@ -436,6 +436,7 @@ nav ul li .active {
 @media only screen and (max-width: 550px) {
     .project-form .form-container .start-end {
         flex-direction: column;
+        gap: 0;
     }
 
     .project-list .grid-container .project-item .edit-delete-button {
