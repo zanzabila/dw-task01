@@ -29,3 +29,15 @@ function submitData() {
     a.href = `mailto:${emailReceiver}?subject=${subject}&body=Halo, nama saya ${name}, ${message}. Silakan kontak saya di nomor ${phone}, terima kasih.`;
     a.click();
 }
+
+function onWidthChange() {
+    let width = document.documentElement.clientWidth;
+    if (width > 900 && hamburgerIsOpen) {
+        hamburgerIsOpen = false;
+        document.getElementById("hamburger-nav-container").style.display = 'none';
+    }
+}
+
+window.addEventListener("resize", onWidthChange);
+
+onWidthChange();

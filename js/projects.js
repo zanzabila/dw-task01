@@ -20,19 +20,6 @@ const months = [
 
 createDummyData();
 
-function handleScreenChange(e) {
-    if (e.matches) {
-        col = 2;
-        renderProjects();
-    } else {
-        col = 3;
-        renderProjects();
-    }
-}
-
-mediaQuery.addListener(handleScreenChange);
-handleScreenChange(mediaQuery);
-
 function openHamburger() {
     let hamburgerNavContainer = document.getElementById("hamburger-nav-container");
     if (!hamburgerIsOpen) {
@@ -201,6 +188,30 @@ function changeGridCol() {
         }
     }
 }
+
+function onWidthChange() {
+    let width = document.documentElement.clientWidth;
+
+    if (width > 900 && hamburgerIsOpen) {
+        hamburgerIsOpen = false;
+        document.getElementById("hamburger-nav-container").style.display = 'none';
+    }
+
+    if (width <= 650) {
+        col = 1;
+        renderProjects();
+    } else if (width <= 900) {
+        col = 2;
+        renderProjects();
+    } else {
+        col = 3;
+        renderProjects();
+    }
+}
+
+window.addEventListener("resize", onWidthChange);
+
+onWidthChange();
 
 function createDummyData() {
     const project1 = {
